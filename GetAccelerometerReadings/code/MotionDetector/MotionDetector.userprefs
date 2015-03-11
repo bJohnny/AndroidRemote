@@ -1,0 +1,13 @@
+﻿<Properties StartupItem="MotionDetector.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.014E0FAC09003011" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Activity1.cs">
+    <Files>
+      <File FileName="Activity1.cs" Line="34" Column="34" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.MotionDetector AndroidDesignerPreferredDevice="Nexus 4" />
+</Properties>
