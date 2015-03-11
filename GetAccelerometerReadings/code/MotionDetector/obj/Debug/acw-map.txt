@@ -1,1 +1,0 @@
-MotionDetector.Activity1;motiondetector.Activity1

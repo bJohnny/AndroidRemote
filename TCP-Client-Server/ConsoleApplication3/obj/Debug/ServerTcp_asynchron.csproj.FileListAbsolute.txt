@@ -1,1 +1,0 @@
-C:\Users\Sarah\Documents\GitHub\AndroidRemote\TCP-Client-Server\ConsoleApplication3\bin\Debug\ConsoleApplication3.exe.config
