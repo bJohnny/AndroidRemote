@@ -12,7 +12,7 @@ namespace client
         const int NumberOfThreads = 10;
         void Work(object obj)
         {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("192.168.0.14"), 5000);
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("192.168.2.120"), 9050);
             TcpClient client = new TcpClient();
             client.Connect(ep);
 

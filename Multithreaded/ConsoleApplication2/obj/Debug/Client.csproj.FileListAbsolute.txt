@@ -4,3 +4,9 @@ C:\Users\Sarah\Documents\Visual Studio 2013\Projects\ConsoleApplication1\Console
 C:\Users\Sarah\Documents\Visual Studio 2013\Projects\ConsoleApplication1\ConsoleApplication2\obj\Debug\Client.csprojResolveAssemblyReference.cache
 C:\Users\Sarah\Documents\Visual Studio 2013\Projects\ConsoleApplication1\ConsoleApplication2\obj\Debug\ConsoleApplication2.exe
 C:\Users\Sarah\Documents\Visual Studio 2013\Projects\ConsoleApplication1\ConsoleApplication2\obj\Debug\ConsoleApplication2.pdb
+C:\Users\Sarah\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe.config
+C:\Users\Sarah\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication2\obj\Debug\ConsoleApplication2.exe
+C:\Users\Sarah\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication2\obj\Debug\ConsoleApplication2.pdb
+C:\Users\Sarah\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe
+C:\Users\Sarah\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication2\bin\Debug\ConsoleApplication2.pdb
+C:\Users\Sarah\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication2\obj\Debug\Client.csprojResolveAssemblyReference.cache

@@ -16,7 +16,7 @@ public class clnt
             TcpClient tcpclnt = new TcpClient();
             Console.WriteLine("Connecting.....");
 
-            tcpclnt.Connect("192.168.0.14", 8001);
+            tcpclnt.Connect("192.168.2.120", 9050);
             // use the ipaddress as in the server program
 
             Console.WriteLine("Connected");
