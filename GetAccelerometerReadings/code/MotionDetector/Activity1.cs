@@ -4,12 +4,13 @@ using System.Text;
 using System.Net;
 using System.Net.Sockets;
 using System.IO;
-
+using System.Threading;
 using Android.App;
 using Android.Content;
 using Android.Hardware;
 using Android.OS;
 using Android.Widget;
+
 
 namespace MotionDetector
 {
@@ -21,6 +22,8 @@ namespace MotionDetector
         private TextView _sensorTextView;
         private TextView _testView;
 
+        public static string messageString = "";
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -28,6 +31,16 @@ namespace MotionDetector
             _sensorManager = (SensorManager) GetSystemService(SensorService);
             _sensorTextView = FindViewById<TextView>(Resource.Id.accelerometer_text);
             _testView = FindViewById<TextView>(Resource.Id.textView1);
+
+            var tcpClient = new Thread(StartClient);
+            tcpClient.IsBackground = true;
+            tcpClient.Start(this);
+        }
+
+        public static void StartClient()
+        {
+            Client p = new Client();
+            p.start();
         }
 
         protected override void OnResume()
@@ -36,7 +49,7 @@ namespace MotionDetector
             _sensorManager.RegisterListener(this, _sensorManager.GetDefaultSensor(SensorType.Accelerometer),
                 SensorDelay.Ui);
 
-            TcpTest();
+            //TcpTest();
         }
 
         protected override void OnPause()
@@ -61,13 +74,17 @@ namespace MotionDetector
                     .Append(", z=")
                     .Append(e.Values[2]);
                 _sensorTextView.Text = text.ToString();
+                messageString = text.ToString();
             }
 
             var test = new StringBuilder("so schreibe ich etwas auf den Screen");
             _testView.Text = test.ToString();
          }
 
-        public void TcpTest()
+
+
+
+        /*public void TcpTest()
         {
             try
             {
@@ -102,6 +119,8 @@ namespace MotionDetector
             {
                 Console.WriteLine("Error..... " + v.StackTrace);
             }
-        }
+        }*/
     }
+
+
 }

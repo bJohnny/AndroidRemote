@@ -4,3 +4,6 @@ C:\Users\Sarah\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication3\
 C:\Users\Sarah\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication3\obj\Debug\ServerMulti2.csprojResolveAssemblyReference.cache
 C:\Users\Sarah\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication3\obj\Debug\ConsoleApplication3.exe
 C:\Users\Sarah\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication3\obj\Debug\ConsoleApplication3.pdb
+C:\Users\John\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication3\bin\Debug\ConsoleApplication3.exe.config
+C:\Users\John\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication3\obj\Debug\ConsoleApplication3.exe
+C:\Users\John\Documents\GitHub\AndroidRemote\Multithreaded\ConsoleApplication3\obj\Debug\ConsoleApplication3.pdb

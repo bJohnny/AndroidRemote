@@ -40,3 +40,17 @@ C:\Users\Sarah\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\Moti
 C:\Users\Sarah\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\res\drawable\icon.png
 C:\Users\Sarah\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\R.cs.flag
 C:\Users\Sarah\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\uploadflags.txt
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\bin\Debug\MotionDetector.dll
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\bin\Debug\MotionDetector.pdb
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\bin\Debug\MotionDetector.dll.mdb
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\bin\Debug\MotionDetector.MotionDetector.apk
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\bin\Debug\MotionDetector.MotionDetector-Signed.apk
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\MotionDetector.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\MotionDetector.dll
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\MotionDetector.pdb
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\android\bin\MotionDetector.MotionDetector.apk
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\res\layout\main.xml
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\res\values\strings.xml
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\res\drawable\icon.png
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\R.cs.flag
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\uploadflags.txt

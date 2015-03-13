@@ -1,61 +1,66 @@
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-
 using System.Net;
 using System.Net.Sockets;
-using System.IO;
-
-using Android.App;
-using Android.Content;
-using Android.OS;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
+using System.Text;
+using System.Threading;
 
 namespace MotionDetector
 {
-    class TcpConnect
+    public class Client
     {
-
-        public void TcpTest()
+        //const int NumberOfThreads = 1;
+        void Work(object obj)
         {
-            try
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("141.28.133.128"), 9050);
+            TcpClient client = new TcpClient();
+            client.Connect(ep);
+
+            using (NetworkStream stream = client.GetStream())
             {
-                var tcpclnt = new TcpClient();
-                //Console.WriteLine("Connecting.....");
-
-                tcpclnt.Connect("141.28.133.128", 8001);
-                // use the ipaddress as in the server program
-
-                //Console.WriteLine("Connected");
-                //Console.Write("Enter the string to be transmitted : ");
-
-                String str = "Test";//Console.ReadLine();
-                Stream stm = tcpclnt.GetStream();
-
-                var asen = new ASCIIEncoding();
-                byte[] ba = asen.GetBytes(str);
-                //Console.WriteLine("Transmitting.....");
-
-                stm.Write(ba, 0, ba.Length);
-
-                var bb = new byte[100];
-                int k = stm.Read(bb, 0, 100);
-
-                for (int i = 0; i < k; i++)
-                    Console.Write(Convert.ToChar(bb[i]));
-
-                tcpclnt.Close();
+                //TODO soll nur dann senden solange etwas in der Message steht. Keine neue Verbindung bei SensorChange
+                /** /
+                for (int i = 0; i < 10000; i++)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    
+                    string request = Activity1.messageString + ";";
+                    
+                    stream.Write(Encoding.ASCII.GetBytes(request), 0, request.Length);
+                    //stream.Flush();
+                    Thread.Sleep(1000);                    
+                }
+                /**/
+                while(Activity1.messageString != String.Empty)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    
+                    string request = Activity1.messageString + ";";
+                    
+                    stream.Write(Encoding.ASCII.GetBytes(request), 0, request.Length);
+                    //stream.Flush();
+                    Thread.Sleep(1000);
+                    
+                }
             }
+            //client.Close();
 
-            catch (Exception v)
-            {
-                Console.WriteLine("Error..... " + v.StackTrace);
-            }
+            Console.WriteLine("Done");
+
         }
 
+        public void start()
+        {
+                ThreadPool.QueueUserWorkItem(Work);           
+        }
+
+        /*static void Main(string[] args)
+        {
+            Client p = new Client();
+            p.start();
+
+            //press any key to exit
+            //Console.ReadKey();
+            //Environment.Exit(0);
+        }*/
     }
 }

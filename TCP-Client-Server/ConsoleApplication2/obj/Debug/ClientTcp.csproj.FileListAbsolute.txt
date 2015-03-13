@@ -16,3 +16,6 @@ C:\Users\Sarah\Documents\GitHub\AndroidRemote\TCP-Client-Server\ConsoleApplicati
 C:\Users\Sarah\Documents\GitHub\AndroidRemote\TCP-Client-Server\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe
 C:\Users\Sarah\Documents\GitHub\AndroidRemote\TCP-Client-Server\ConsoleApplication2\bin\Debug\ConsoleApplication2.pdb
 C:\Users\Sarah\Documents\GitHub\AndroidRemote\TCP-Client-Server\ConsoleApplication2\obj\Debug\ClientTcp.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\GitHub\AndroidRemote\TCP-Client-Server\ConsoleApplication2\bin\Debug\ConsoleApplication2.exe.config
+C:\Users\John\Documents\GitHub\AndroidRemote\TCP-Client-Server\ConsoleApplication2\obj\Debug\ConsoleApplication2.exe
+C:\Users\John\Documents\GitHub\AndroidRemote\TCP-Client-Server\ConsoleApplication2\obj\Debug\ConsoleApplication2.pdb
