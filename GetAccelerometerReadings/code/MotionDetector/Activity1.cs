@@ -74,7 +74,7 @@ namespace MotionDetector
                 var tcpclnt = new TcpClient();
                 //Console.WriteLine("Connecting.....");
 
-                tcpclnt.Connect("141.28.133.128", 11000);
+                tcpclnt.Connect("192.168.2.120", 9050);
                 // use the ipaddress as in the server program
 
                 //Console.WriteLine("Connected");

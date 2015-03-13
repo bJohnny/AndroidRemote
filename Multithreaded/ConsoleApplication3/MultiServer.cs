@@ -55,6 +55,7 @@ public class ThreadPoolTcpSrvr
 
 class ConnectionThread
 {
+    public StringBuilder recvMessage;
     public TcpListener threadListener;
     private static int connections = 0;
 
@@ -76,12 +77,13 @@ class ConnectionThread
         while (true)
         {
             data = new byte[1024];
+
             recv = ns.Read(data, 0, data.Length);
-            StringBuilder recvMessage = new StringBuilder();
+            recvMessage = new StringBuilder();
             recvMessage.AppendFormat("{0}", Encoding.ASCII.GetString(data, 0, recv));
             Console.WriteLine("You received the following message : " + recvMessage);
-
-            if (recv == 0)
+            
+            if (recv == 0 || !ns.CanRead)
                 break;
             ns.Write(data, 0, recv);
         }
@@ -92,4 +94,10 @@ class ConnectionThread
         Console.WriteLine("Client disconnected: {0} active connections",
                            connections);
     }
+
+    public void NewCoord()
+    {
+        Console.WriteLine(recvMessage);
+    }
 }
+

@@ -9,29 +9,36 @@ namespace client
     class Program
     {
         
-        const int NumberOfThreads = 10;
+        const int NumberOfThreads = 1;
         void Work(object obj)
         {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("192.168.2.120"), 9050);
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("141.28.133.128"), 9050);
             TcpClient client = new TcpClient();
             client.Connect(ep);
 
-            StringBuilder sb = new StringBuilder();
             using (NetworkStream stream = client.GetStream())
             {
-                string request = "Test" + '\0';
-                Console.WriteLine("sent: " + request);
-                stream.Write(Encoding.ASCII.GetBytes(request), 0, request.Length);
-
-                int i;
-                while ((i = stream.ReadByte()) != 0)
+                for (int i = 0; i < 10000; i++)
                 {
-                    sb.Append((char)i);
+                    StringBuilder sb = new StringBuilder();
+                    string request = "Message No. " + i + ";";
+                    Console.WriteLine("sent: " + request);
+                    stream.Write(Encoding.ASCII.GetBytes(request), 0, request.Length);
+                    stream.Flush();
+                    Thread.Sleep(1000);
+                    /*
+                    int i;
+                    while ((i = stream.ReadByte()) != 0)
+                    {
+                        sb.Append((char)i);
+                    }
+                        */
                 }
             }
-            client.Close();
+            //client.Close();
 
-            Console.WriteLine(sb.ToString());
+            Console.WriteLine("Done");
+
         }
 
         void start()
