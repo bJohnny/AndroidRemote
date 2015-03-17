@@ -1,28 +1,24 @@
-﻿using System;
-using System.Text;
-
-using System.Net;
-using System.Net.Sockets;
-using System.IO;
+﻿using System.Text;
 using System.Threading;
 using Android.App;
-using Android.Content;
+using Android.Content.PM;
 using Android.Hardware;
 using Android.OS;
+using Android.Views;
 using Android.Widget;
 
 
 namespace MotionDetector
 {
-    [Activity(Label = "MotionDetector", MainLauncher = true, Icon = "@drawable/icon")]
+    [Activity(Label = "MotionDetector", MainLauncher = true, Icon = "@drawable/icon", ScreenOrientation = ScreenOrientation.Landscape)]
     public class Activity1 : Activity, ISensorEventListener
     {
-        private static readonly object _syncLock = new object();
+        private static readonly object SyncLock = new object();
         private SensorManager _sensorManager;
         private TextView _sensorTextView;
         private TextView _testView;
 
-        public static string messageString = "";
+        public static string MessageString = "";
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -32,14 +28,15 @@ namespace MotionDetector
             _sensorTextView = FindViewById<TextView>(Resource.Id.accelerometer_text);
             _testView = FindViewById<TextView>(Resource.Id.textView1);
 
-            var tcpClient = new Thread(StartClient);
-            tcpClient.IsBackground = true;
+            Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
+            
+            var tcpClient = new Thread(StartClient) {IsBackground = true};
             tcpClient.Start(this);
         }
 
         public static void StartClient()
         {
-            Client p = new Client();
+            var p = new Client();
             p.start();
         }
 
@@ -48,8 +45,6 @@ namespace MotionDetector
             base.OnResume();
             _sensorManager.RegisterListener(this, _sensorManager.GetDefaultSensor(SensorType.Accelerometer),
                 SensorDelay.Ui);
-
-            //TcpTest();
         }
 
         protected override void OnPause()
@@ -65,7 +60,7 @@ namespace MotionDetector
 
         public void OnSensorChanged(SensorEvent e)
         {
-            lock (_syncLock)
+            lock (SyncLock)
             {
                 var text = new StringBuilder("x = ")
                     .Append(e.Values[0])
@@ -74,53 +69,11 @@ namespace MotionDetector
                     .Append(", z=")
                     .Append(e.Values[2]);
                 _sensorTextView.Text = text.ToString();
-                messageString = text.ToString();
+                MessageString = text.ToString();
             }
 
             var test = new StringBuilder("so schreibe ich etwas auf den Screen");
             _testView.Text = test.ToString();
          }
-
-
-
-
-        /*public void TcpTest()
-        {
-            try
-            {
-                var tcpclnt = new TcpClient();
-                //Console.WriteLine("Connecting.....");
-
-                tcpclnt.Connect("192.168.2.120", 9050);
-                // use the ipaddress as in the server program
-
-                //Console.WriteLine("Connected");
-                //Console.Write("Enter the string to be transmitted : ");
-
-                String str = "Test";//Console.ReadLine();
-                Stream stm = tcpclnt.GetStream();
-
-                var asen = new ASCIIEncoding();
-                byte[] ba = asen.GetBytes(str);
-                //Console.WriteLine("Transmitting.....");
-
-                stm.Write(ba, 0, ba.Length);
-
-                var bb = new byte[100];
-                int k = stm.Read(bb, 0, 100);
-
-                for (int i = 0; i < k; i++)
-                    Console.Write(Convert.ToChar(bb[i]));
-
-                tcpclnt.Close();
-            }
-
-            catch (Exception v)
-            {
-                Console.WriteLine("Error..... " + v.StackTrace);
-            }
-        }*/
     }
-
-
 }

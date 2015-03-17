@@ -30,11 +30,11 @@ namespace MotionDetector
                     Thread.Sleep(1000);                    
                 }
                 /**/
-                while(Activity1.messageString != String.Empty)
+                while(Activity1.MessageString != String.Empty)
                 {
                     StringBuilder sb = new StringBuilder();
                     
-                    string request = Activity1.messageString + ";";
+                    string request = Activity1.MessageString + ";";
                     
                     stream.Write(Encoding.ASCII.GetBytes(request), 0, request.Length);
                     //stream.Flush();
