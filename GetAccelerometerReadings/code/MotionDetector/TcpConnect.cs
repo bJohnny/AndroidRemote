@@ -8,59 +8,34 @@ namespace MotionDetector
 {
     public class Client
     {
-        //const int NumberOfThreads = 1;
+        public TcpClient client;
+
         void Work(object obj)
         {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("141.28.133.128"), 9050);
-            TcpClient client = new TcpClient();
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("192.168.0.11"), 9050);
+            client = new TcpClient();
             client.Connect(ep);
 
             using (NetworkStream stream = client.GetStream())
             {
-                //TODO soll nur dann senden solange etwas in der Message steht. Keine neue Verbindung bei SensorChange
-                /** /
-                for (int i = 0; i < 10000; i++)
-                {
-                    StringBuilder sb = new StringBuilder();
-                    
-                    string request = Activity1.messageString + ";";
-                    
-                    stream.Write(Encoding.ASCII.GetBytes(request), 0, request.Length);
-                    //stream.Flush();
-                    Thread.Sleep(1000);                    
-                }
-                /**/
                 while(Activity1.MessageString != String.Empty)
                 {
-                    StringBuilder sb = new StringBuilder();
-                    
                     string request = Activity1.MessageString + ";";
                     
                     stream.Write(Encoding.ASCII.GetBytes(request), 0, request.Length);
                     //stream.Flush();
                     Thread.Sleep(1000);
-                    
                 }
             }
-            //client.Close();
-
+            client.Close(); //TODO: close OnBackPressed(), at the moment you never get here
             Console.WriteLine("Done");
 
         }
-
-        public void start()
+        
+        public void Start()
         {
                 ThreadPool.QueueUserWorkItem(Work);           
         }
-
-        /*static void Main(string[] args)
-        {
-            Client p = new Client();
-            p.start();
-
-            //press any key to exit
-            //Console.ReadKey();
-            //Environment.Exit(0);
-        }*/
     }
+
 }

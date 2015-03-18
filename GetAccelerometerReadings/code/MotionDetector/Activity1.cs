@@ -37,7 +37,7 @@ namespace MotionDetector
         public static void StartClient()
         {
             var p = new Client();
-            p.start();
+            p.Start();
         }
 
         protected override void OnResume()
@@ -75,5 +75,13 @@ namespace MotionDetector
             var test = new StringBuilder("so schreibe ich etwas auf den Screen");
             _testView.Text = test.ToString();
          }
+
+        //public override void OnBackPressed()
+        //{
+            
+        //    Client.client.Close();
+
+        //}
+
     }
 }
