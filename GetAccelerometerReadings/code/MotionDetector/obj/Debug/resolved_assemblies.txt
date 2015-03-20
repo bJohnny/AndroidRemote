@@ -1,1 +1,1 @@
-C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\bin\Debug\MotionDetector.dll
+C:\Users\Sarah\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\bin\Debug\MotionDetector.dll

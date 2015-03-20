@@ -12,19 +12,26 @@ namespace MotionDetector
 
         void Work(object obj)
         {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("192.168.0.11"), 9050);
+            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("141.28.135.108"), 9050);
             client = new TcpClient();
             client.Connect(ep);
 
             using (NetworkStream stream = client.GetStream())
             {
-                while(Activity1.MessageString != String.Empty)
+                while(true)
                 {
-                    string request = Activity1.MessageString + ";";
+                    if (!string.IsNullOrEmpty(Activity1.MessageString))
+                    {
+                        string request = Activity1.MessageString + ";";
                     
-                    stream.Write(Encoding.ASCII.GetBytes(request), 0, request.Length);
-                    //stream.Flush();
-                    Thread.Sleep(1000);
+                        stream.Write(Encoding.ASCII.GetBytes(request), 0, request.Length);
+                        //stream.Flush();
+                        Thread.Sleep(200);
+                    }
+                    else
+                    {
+                        string s = "EMPTY";
+                    }
                 }
             }
             client.Close(); //TODO: close OnBackPressed(), at the moment you never get here
