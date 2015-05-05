@@ -3,40 +3,107 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
+using Android.Provider;
+using Android.Util;
 
 namespace MotionDetector
 {
     public class Client
     {
         public TcpClient client;
+        private IPAddress address;
+
+        public static IPEndPoint IpEp { get; set; }
+
+        public Client()
+        {
+            
+        }
+
+        public Client(IPAddress address)
+        {
+            this.address = address;
+        }
+        
 
         void Work(object obj)
         {
-            IPEndPoint ep = new IPEndPoint(IPAddress.Parse("141.28.135.108"), 9050);
-            client = new TcpClient();
-            client.Connect(ep);
+            //IPEndPoint ep = new IPEndPoint(address, 3000);
+            Log.Info("HA", "Connecting... !!!");
+            client = new TcpClient(address.ToString(), 9050);
+            Log.Info("HA", "Connected !!!");
 
-            using (NetworkStream stream = client.GetStream())
+            //client.Connect(ep);
+
+            NetworkStream clientStream = client.GetStream();
+
+            if (clientStream.CanWrite)
             {
-                while(true)
+                Log.Info("HA", "we are using the stream");
+                
+
+                while (true)
                 {
-                    if (!string.IsNullOrEmpty(Activity1.MessageString))
+                    if (!string.IsNullOrEmpty((Activity1.MessageString)))
                     {
-                        string request = Activity1.MessageString + ";";
-                    
-                        stream.Write(Encoding.ASCII.GetBytes(request), 0, request.Length);
-                        //stream.Flush();
-                        Thread.Sleep(200);
-                    }
-                    else
-                    {
-                        string s = "EMPTY";
+                        Log.Info("HA", Activity1.MessageString);
+
+                        Byte[] sendBytes = Encoding.ASCII.GetBytes(Activity1.MessageString + ";");
+                        clientStream.Write(sendBytes, 0, sendBytes.Length);
+                        Thread.Sleep(2000);
                     }
                 }
-            }
-            client.Close(); //TODO: close OnBackPressed(), at the moment you never get here
-            Console.WriteLine("Done");
+                
 
+            }
+            else
+            {
+                Log.Warn("HA", "You cannot write in this stream!");
+                client.Close();
+                clientStream.Close();
+                return;
+            }
+
+            //TODO Fix the delimiter and get back to this bit
+            //using (NetworkStream stream = client.GetStream())
+            //{
+            //    while(true)
+            //    {
+            //        if (!string.IsNullOrEmpty(Activity1.MessageString))
+            //        {
+            //            //Log.Info("HA", "I have a dream");
+            //            string request = Activity1.MessageString + ";";
+                    
+            //            stream.Write(Encoding.ASCII.GetBytes(request), 0, request.Length);
+            //            //stream.Flush();
+            //            Thread.Sleep(200);
+            //        }
+            //        else
+            //        {
+            //            string s = "EMPTY";
+            //        }
+            //    }
+            //}
+
+            
+
+            
+            
+
+            
+            //client.Close(); //TODO: close OnBackPressed(), at the moment you never get here
+            
+
+        }
+
+        public void Close()
+        {
+            client.Close();
+        }
+
+        public bool Connected()
+        {
+            return client.Connected;
         }
         
         public void Start()
