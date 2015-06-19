@@ -11,6 +11,7 @@ using Android.OS;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Org.Json;
 
 
 namespace MotionDetector
@@ -108,7 +109,11 @@ namespace MotionDetector
                                     .Append("\nAccuracy : ")
                                     .Append(e.Accuracy);
                     _sensorTextView.Text = text.ToString();
-                    MessageString = "Pitch:" + e.Values[2] + ", Roll: " + e.Values[1];
+                    MessageString = "Pitch: " + e.Values[2] + ", Roll:" + e.Values[1];
+                    
+                    //var Message = new {pitch = e.Values[2], roll = e.Values[1]};
+                    
+
                 }
             }
          }

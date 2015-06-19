@@ -30,7 +30,7 @@ namespace MotionDetector
         {
             //IPEndPoint ep = new IPEndPoint(address, 3000);
             Log.Info("HA", "Connecting... !!!");
-            client = new TcpClient(address.ToString(), 9050);
+            client = new TcpClient(address.ToString(), 3000);
             Log.Info("HA", "Connected !!!");
 
             //client.Connect(ep);
@@ -47,10 +47,10 @@ namespace MotionDetector
                     if (!string.IsNullOrEmpty((Activity1.MessageString)))
                     {
                         Log.Info("HA", Activity1.MessageString);
-
-                        Byte[] sendBytes = Encoding.ASCII.GetBytes(Activity1.MessageString + ";");
+                        var massage = Activity1.MessageString + ";";
+                        Byte[] sendBytes = Encoding.ASCII.GetBytes(massage);
                         clientStream.Write(sendBytes, 0, sendBytes.Length);
-                        Thread.Sleep(2000);
+                        //Thread.Sleep(2000);
                     }
                 }
                 
