@@ -12,6 +12,18 @@ namespace MotionDetector
     {
         public TcpClient client;
         private IPAddress address;
+        private static string element = "";
+        private static bool isConnected = false;
+
+        public static string getElement()
+        {
+            return element;
+        }
+
+        public static bool getConnected()
+        {
+            return isConnected;
+        }
 
         public static IPEndPoint IpEp { get; set; }
 
@@ -32,14 +44,37 @@ namespace MotionDetector
             Log.Info("HA", "Connecting... !!!");
             client = new TcpClient(address.ToString(), 3000);
             Log.Info("HA", "Connected !!!");
-
+            isConnected = true;
             //client.Connect(ep);
 
             NetworkStream clientStream = client.GetStream();
 
+
+            if (clientStream.CanRead)
+            {
+              //  StringBuilder RecvMessage;
+                int recv;
+                byte[] data = new byte[1024];
+                
+                while (true)
+                {
+                    Log.Info("HA", "Reading Stream");
+                    recv = clientStream.Read(data, 0, data.Length);
+                    //TODO: if client disconnects --> IOExeption, fix it (maybe client.Close() in the Android App!
+                    element = Encoding.ASCII.GetString(data, 0, recv);
+                    Log.Info("HA", element);
+                    if (!element.Equals("")) break;
+                    
+                }
+                
+                    
+
+            }
+
+
             if (clientStream.CanWrite)
             {
-                Log.Info("HA", "we are using the stream");
+                Log.Info("HA", "Can write in Stream");
                 
 
                 while (true)
@@ -49,9 +84,13 @@ namespace MotionDetector
                         Log.Info("HA", Activity1.MessageString);
                         var massage = Activity1.MessageString + ";";
                         Byte[] sendBytes = Encoding.ASCII.GetBytes(massage);
+                        //clientStream.Read(sendBytes, 0, sendBytes.Length);
                         clientStream.Write(sendBytes, 0, sendBytes.Length);
+                        clientStream.Flush();
                         //Thread.Sleep(2000);
                     }
+
+                  
                 }
                 
 

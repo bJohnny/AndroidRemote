@@ -3,5 +3,6 @@
   <PropertyGroup>
     <SelectedDevice>Google Galaxy Nexus</SelectedDevice>
     <AndroidDesignerPreferredDevice>Nexus 4</AndroidDesignerPreferredDevice>
+    <AndroidDesignerPreferredTheme>Theme.Black.NoTitleBar.Fullscreen</AndroidDesignerPreferredTheme>
   </PropertyGroup>
 </Project>

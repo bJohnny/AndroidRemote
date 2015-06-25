@@ -1,0 +1,13 @@
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\bin\Release\MotionDetector.dll
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\bin\Release\MotionDetector.pdb
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\bin\Release\MotionDetector.MotionDetector.apk
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\bin\Release\MotionDetector.MotionDetector-Signed.apk
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Release\MotionDetector.csprojResolveAssemblyReference.cache
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Release\MotionDetector.dll
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Release\MotionDetector.pdb
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Release\android\bin\MotionDetector.MotionDetector.apk
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Release\res\layout\main.xml
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Release\res\values\strings.xml
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Release\res\drawable\icon.png
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Release\R.cs.flag
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Release\uploadflags.txt

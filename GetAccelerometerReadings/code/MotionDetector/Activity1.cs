@@ -4,6 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading;
 using Android.App;
+using Android.Content;
 using Android.Content.PM;
 using Android.Hardware;
 using Android.Locations;
@@ -11,6 +12,7 @@ using Android.OS;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using Java.IO;
 using Org.Json;
 
 
@@ -23,6 +25,8 @@ namespace MotionDetector
         private SensorManager _sensorManager;
         private TextView _sensorTextView;
         private TextView _testView;
+        private ImageView _picture;
+        private FrameLayout _frame;
         private Button _connectButton;
         private EditText _inputEditText;
         private IPAddress _address;
@@ -38,6 +42,9 @@ namespace MotionDetector
             _sensorTextView = FindViewById<TextView>(Resource.Id.accelerometer_text);
             _testView = FindViewById<TextView>(Resource.Id.textView1);
             _inputEditText = FindViewById<EditText>(Resource.Id.IPEndPoint);
+         
+            _picture = FindViewById<ImageView>(Resource.Id.imageView);
+            _frame = FindViewById<FrameLayout>(Resource.Id.frameView);
 
             Window.SetFlags(WindowManagerFlags.KeepScreenOn, WindowManagerFlags.KeepScreenOn);
             
@@ -49,15 +56,57 @@ namespace MotionDetector
 
             _connectButton.Click += delegate
             {
-                IPAddress.TryParse(_inputEditText.Text, out _address);
-                Log.Info("HA", _address.ToString());
-                //MotionDetector.Client.IpEp = new IPEndPoint(_address, 9050);
+                if (!_inputEditText.Text.Equals(""))
+                {
+                    IPAddress.TryParse(_inputEditText.Text, out _address);
+                    Log.Info("HA", _address.ToString());
+                    //MotionDetector.Client.IpEp = new IPEndPoint(_address, 9050);
 
-                //client = new Client();
-                var tcpClient = new Thread(StartClient) {IsBackground = true};
-                Log.Info("HA", "started new Thread");
-                tcpClient.Start(this);
-                
+                    //client = new Client();
+                    var tcpClient = new Thread(StartClient) { IsBackground = true };
+                    Log.Info("HA", "started new Thread");
+                    tcpClient.Start(this);
+
+                    if (tcpClient.IsAlive)
+                    {
+                        Thread.Sleep(2000);
+                       
+                            String element = Client.getElement();
+
+                            switch (element)
+                            {
+                                case "fire":
+                                    _frame.Visibility = ViewStates.Visible;
+                                    _picture.SetImageResource(Resource.Drawable.fire);
+                                    break;
+                                case "earth":
+                                    _frame.Visibility = ViewStates.Visible;
+                                    _picture.SetImageResource(Resource.Drawable.earth);
+                                    break;
+                                case "air":
+                                    _frame.Visibility = ViewStates.Visible;
+                                    _picture.SetImageResource(Resource.Drawable.air);
+                                    break;
+                                case "water":
+                                    _frame.Visibility = ViewStates.Visible;
+                                    _picture.SetImageResource(Resource.Drawable.water);
+                                    break;
+
+                            
+                        
+                    }
+                   
+                    }
+                  
+
+                    
+
+
+                   
+               
+                }
+                else
+                    Toast.MakeText(Android.App.Application.Context, "IP-Adress Empty", ToastLength.Long).Show();
             };
 
             _disconnectButton.Click += delegate
@@ -79,13 +128,13 @@ namespace MotionDetector
         protected override void OnResume()
         {
             base.OnResume();
-            _sensorManager.RegisterListener(this, _sensorManager.GetDefaultSensor(SensorType.Orientation), SensorDelay.Game);
+            //_sensorManager.RegisterListener(this, _sensorManager.GetDefaultSensor(SensorType.Orientation), SensorDelay.Game);
         }
 
         protected override void OnPause()
         {
             base.OnPause();
-            _sensorManager.UnregisterListener(this);
+            //_sensorManager.UnregisterListener(this);
         }
 
         public void OnAccuracyChanged(Sensor sensor, SensorStatus accuracy)
@@ -130,4 +179,6 @@ namespace MotionDetector
             }
         }
     }
+
+   
 }

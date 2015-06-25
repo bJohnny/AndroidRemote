@@ -51,6 +51,10 @@ C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\Motio
 C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\res\layout\main.xml
 C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\res\values\strings.xml
 C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\res\drawable\icon.png
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\res\drawable-nodpi\air.png
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\res\drawable-nodpi\earth.png
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\res\drawable-nodpi\fire.png
+C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\res\drawable-nodpi\water.png
 C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\R.cs.flag
 C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\uploadflags.txt
 C:\Users\John\Documents\GitHub\AndroidRemote\GetAccelerometerReadings\code\MotionDetector\obj\Debug\MotionDetector.csprojResolveAssemblyReference.cache
